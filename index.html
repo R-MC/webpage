@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passing the Parcel</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #14161a;
+      color: #e6e8eb;
+    }
+
+    h1 { font-size: 1.4rem; font-weight: 600; }
+
+    /* Four chunks. This is the whole layout. */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;   /* 2 columns */
+      grid-template-rows: 1fr 1fr;      /* 2 rows  -> 4 cells */
+      gap: 1rem;
+      height: 60vh;
+    }
+
+    .panel {
+      border: 1px solid #333940;
+      border-radius: 10px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    /* Highlight whichever panel currently holds the message */
+    .panel:has(#message) { background: #1e2a38; border-color: #4a90d9; }
+
+    .label { font-size: 0.75rem; color: #7d868f; align-self: flex-start; }
+
+    #message { text-align: center; }
+
+    button {
+      font: inherit;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      border: 1px solid #4a90d9;
+      background: #4a90d9;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    button:hover { background: #3b7ab8; }
+  </style>
+</head>
+<body>
+
+  <h1>Click the button and watch the message move</h1>
+
+  <div class="grid">
+    <div class="panel" id="panel-1">
+      <span class="label">Panel 1</span>
+      <div id="message">
+        <p>I am the message. I live here for now.</p>
+        <button id="moveBtn">Click here</button>
+      </div>
+    </div>
+    <div class="panel" id="panel-2"><span class="label">Panel 2</span></div>
+    <div class="panel" id="panel-4"><span class="label">Panel 4</span></div>
+    <div class="panel" id="panel-3"><span class="label">Panel 3</span></div>
+  </div>
+
+  <script>
+    // Grid order is 1, 2, 4, 3 visually (clockwise) - we control the
+    // travel order here, independent of where they sit on screen.
+    const order = ["panel-1", "panel-2", "panel-3", "panel-4"];
+    let current = 0;
+
+    // The three lines that actually do the work:
+    document.getElementById("moveBtn").addEventListener("click", () => {
+      current = (current + 1) % order.length;
+      document.getElementById(order[current])
+              .appendChild(document.getElementById("message"));
+    });
+  </script>
+
+</body>
+</html>
