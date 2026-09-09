@@ -2,36 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Passing the Parcel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reeve - Spearfishing</title>
   <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 20px auto; padding: 0 15px; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .panel { border: 1px solid grey; height: 100px; padding: 10px; }
+    .panel { border: 1px solid grey; height: 80px; padding: 10px; }
   </style>
 </head>
 <body>
 
-  <h1>Click the button and watch the message move</h1>
+<!-- ===== Page heading ===== -->
+<h1>Reeve</h1>
 
-  <div class="grid">
-    <div class="panel" id="panel-1">
-      <p id="message">I am the message.</p>
-    </div>
-    <div class="panel" id="panel-2"></div>
-    <div class="panel" id="panel-3"></div>
-    <div class="panel" id="panel-4"></div>
+<p style="color: grey;">Canadian. Spearfisher. Learning web technologies.</p>
+
+<hr>
+
+<!-- ===== About me ===== -->
+<h2>About Me</h2>
+
+<p>
+  My name is Reeve and I am from Canada.<br>
+  Outside of studying, the thing I spend most of my time on is spearfishing.
+</p>
+
+<img src="fish.svg" alt="Drawing of a fish with a spear behind it" width="300" height="150">
+
+<hr>
+
+<!-- ===== My interest ===== -->
+<h2>Spearfishing</h2>
+
+<h3>What it is</h3>
+
+<p>
+  Spearfishing is hunting fish underwater with a spear or speargun, on a single
+  breath. No tank, no air. You swim down, wait, and come back up. It is closer
+  to hunting than it is to angling &mdash; you have to get near the fish, and you only
+  get as long as your lungs allow.
+</p>
+
+<h3>Why I like it</h3>
+
+<p>
+  It is quiet. Once you are a few metres down there is no noise at all, and
+  everything slows down. It is also the most honest way I know of to catch
+  something: you take one fish, the one you chose, and nothing else gets hurt.
+  You cannot leave a net behind by accident.
+</p>
+
+<h3>Kit I take with me</h3>
+
+<pre>
+mask and snorkel
+long freediving fins
+wetsuit and weight belt
+speargun
+dive knife
+float and flag
+</pre>
+
+<h4>The one thing people get wrong</h4>
+
+<p>
+  Weighting. Too much lead and you sink when you are tired, which is exactly
+  when you least want to. Most beginners wear far too much of it.
+</p>
+
+<h5>A note on the flag</h5>
+
+<p>A dive flag is not optional. It tells boats a person is in the water.</p>
+
+<h6>Small print</h6>
+
+<p>Rules vary by province, so check local regulations before going out.</p>
+
+<hr>
+
+<!-- ===== My experiment with JavaScript ===== -->
+<h2>Something I Built</h2>
+
+<p>
+  While making this page I tried something that was not in the reading. Click
+  the button and the message moves between the four boxes.
+</p>
+
+<div class="grid">
+  <div class="panel" id="panel-1">
+    <p id="message">I am the message.</p>
   </div>
+  <div class="panel" id="panel-2"></div>
+  <div class="panel" id="panel-3"></div>
+  <div class="panel" id="panel-4"></div>
+</div>
 
-  <button onclick="move()">Click here</button>
+<button onclick="move()">Click here</button>
 
-  <script>
-    let n = 1;
+<hr>
 
-    function move() {
-      n = n % 4 + 1;
-      document.getElementById("panel-" + n)
-              .appendChild(document.getElementById("message"));
-    }
-  </script>
+<!-- ===== Links out ===== -->
+<h2>Where to Read More</h2>
+
+<p>
+  <a href="https://en.wikipedia.org/wiki/Spearfishing" title="Spearfishing on Wikipedia">
+    Spearfishing on Wikipedia
+  </a>
+</p>
+
+<p>
+  <a href="https://www.w3schools.com/html/" title="The HTML tutorial used on this module">
+    W3Schools HTML tutorial
+  </a>
+</p>
+
+<script>
+  let n = 1;
+
+  function move() {
+    n = n % 4 + 1;
+    document.getElementById("panel-" + n)
+            .appendChild(document.getElementById("message"));
+  }
+</script>
 
 </body>
 </html>
