@@ -1,0 +1,208 @@
+/* Reeve — Web Technologies
+   Mobile-first stylesheet. Base rules target small screens;
+   the media queries below layer on wider layouts. */
+
+:root {
+  --deep:    #0b5394;
+  --mid:     #2a7ab9;
+  --surface: #e8f4f8;
+  --card:    #ffffff;
+  --ink:     #1c2b36;
+  --muted:   #5a6b78;
+  --space:   1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: var(--space);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--surface);
+}
+
+/* Skip link — visible only once focused by keyboard */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: var(--space);
+  top: var(--space);
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--card);
+  border: 2px solid var(--deep);
+}
+
+/* Type scale */
+h1,
+h2,
+h3 {
+  color: var(--deep);
+  line-height: 1.2;
+  margin-block: 0 0.5rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.05rem;
+  color: var(--mid);
+}
+
+p {
+  margin-block: 0 var(--space);
+}
+
+/* Class selector */
+.intro {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ID selector */
+#site-title {
+  border-bottom: 3px solid var(--mid);
+  padding-bottom: 0.4rem;
+}
+
+/* Layout wrapper */
+.wrapper {
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 8px;
+  padding: var(--space);
+  margin-block-end: var(--space);
+}
+
+/* Descendant + child selectors */
+.card > h2 {
+  margin-block-start: 0;
+}
+
+.facts li {
+  margin-block-end: 0.35rem;
+}
+
+/* Pseudo-class: alternate row shading, and first item emphasis */
+.facts li:nth-child(odd) {
+  color: var(--muted);
+}
+
+.facts li:first-child {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+figure {
+  margin: 0 0 var(--space);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid var(--deep);
+  border-radius: 4px;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-block-start: 0.4rem;
+}
+
+pre {
+  color: var(--deep);
+  background: var(--card);
+  padding: var(--space);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* Attribute selector — flag links that leave the site */
+a[href^="http"]::after {
+  content: " ↗";
+  font-size: 0.85em;
+}
+
+a {
+  color: var(--deep);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--mid);
+}
+
+/* Visible focus ring for keyboard users */
+a:focus-visible,
+.skip-link:focus-visible {
+  outline: 3px solid var(--mid);
+  outline-offset: 2px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--mid);
+  margin-block: 1.5rem;
+}
+
+footer {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+  padding-block: var(--space);
+}
+
+/* ---- Tablet and up ---- */
+@media (min-width: 40rem) {
+  :root {
+    --space: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space);
+    align-items: start;
+  }
+}
+
+/* ---- Desktop ---- */
+@media (min-width: 64rem) {
+  h1 {
+    font-size: 2.75rem;
+  }
+}
+
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
