@@ -257,3 +257,23 @@ input:focus-visible, select:focus-visible, button:focus-visible {
 #fish-result {
   margin-block: 1rem 0;
 }
+
+.weather-card {
+  margin-block-start: var(--space);
+}
+
+.weather-card button {
+  max-width: 28rem;
+}
+
+#weather-status {
+  margin-block: 1rem;
+}
+
+
+
+button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
