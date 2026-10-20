@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Find television shows, explore their casts, and build a personal watchlist with WebTech.">
+<title>WebTech | Find your next show</title>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header wrap">
+<a href="./" aria-label="WebTech home"><img class="logo" src="logo.png" width="468" height="146" alt="WebTech"></a>
+<nav aria-label="Main navigation"><a href="#discover">Discover</a><a href="#watchlist">Watchlist <span id="saved-count">0</span></a><a href="#about">About</a></nav>
+</header>
+<main id="main" tabindex="-1" class="wrap">
+<section class="hero" aria-labelledby="hero-title">
+<p class="eyebrow">THE NEXT EPISODE STARTS HERE</p>
+<h1 id="hero-title">Less scrolling.<br>More <em>good television.</em></h1>
+<p class="hero-copy">Find a familiar favourite or your next obsession. Explore shows, meet the cast, and keep a shortlist for later.</p>
+</section>
+<section id="discover" aria-labelledby="search-title">
+<div class="section-heading"><h2 id="search-title">Find your next show</h2><span class="subtle">Powered by TVmaze</span></div>
+<form id="search-form" class="search-panel">
+<div class="search-row"><div class="field grow"><label for="query">Show title</label><input id="query" name="query" type="search" placeholder="Try Sherlock, Friends or The Office" minlength="2" maxlength="80" required aria-describedby="search-help"></div><button id="search-button" type="submit">Search shows <span aria-hidden="true">→</span></button></div>
+<p id="search-help" class="hint">Enter at least two characters. Filters apply to the returned matches.</p>
+<fieldset class="filters"><legend>Refine your results</legend>
+<div class="field"><label for="genre">Genre</label><select id="genre" name="genre"><option value="">All genres</option></select></div>
+<div class="field"><label for="rating">Minimum rating (0–10)</label><input id="rating" name="rating" type="number" min="0" max="10" step="0.5" value="0" required></div>
+<div class="field"><label for="sort">Sort by</label><select id="sort" name="sort"><option value="relevance">Best match</option><option value="rating">Highest rated</option><option value="name">Title A–Z</option></select></div>
+<label class="check"><input id="running" type="checkbox" name="running"> Currently running only</label>
+</fieldset>
+</form>
+<p id="search-status" role="status" aria-live="polite">Search for a title to get started.</p>
+<div id="results" class="show-grid" aria-busy="false"></div>
+</section>
+<section id="watchlist" class="saved-section" aria-labelledby="watch-title"><div class="section-heading"><div><p class="eyebrow">YOUR PERSONAL SHORTLIST</p><h2 id="watch-title">Watch later</h2></div><span class="subtle">Saved on this browser</span></div><p id="storage-status" role="status"></p><ul id="saved-list" class="saved-list"></ul></section>
+<section id="about" class="about" aria-labelledby="about-title"><h2 id="about-title">A little help choosing.</h2><p>WebTech searches television shows using TVmaze. Select “Details” to read a synopsis and see the main cast. Save titles to your watchlist to find them again on this browser.</p><p>Ratings and availability of information depend on TVmaze. This app does not stream shows or verify where you can watch them.</p><details><summary>How your watchlist works</summary><p>Only show IDs and titles are saved in this browser’s local storage. There is no account or server-side watchlist. Clearing browser data removes the list. Search terms are sent to TVmaze when you search.</p></details></section>
+<noscript><p class="notice">Enable JavaScript to search shows and use the watchlist.</p></noscript>
+</main>
+<footer class="wrap site-footer"><p>WebTech · Your next watch, found.</p><p>Show data and images: <a href="https://www.tvmaze.com/">TVmaze</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a></p></footer>
+<dialog id="show-dialog" aria-labelledby="detail-title"><div class="dialog-top"><h2 id="detail-title">Show details</h2><button id="close-dialog" class="secondary" type="button">Close</button></div><p id="detail-status" role="status"></p><div id="detail-content"></div></dialog>
+</body>
+</html>
