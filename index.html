@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reeve — Spearfishing</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -47,6 +48,26 @@
       </section>
 
     </div>
+    <!-- Form added with OpenAI Codex assistance, 20 October 2026. -->
+    <section class="card">
+      <h2>Record a fish</h2>
+      <form id="fish-form">
+        <label for="fish-name">Fish</label>
+        <select id="fish-name" name="fish" required>
+          <option value="">Choose a fish</option>
+          <option value="mackerel">Mackerel</option>
+          <option value="bass">Bass</option>
+          <option value="pollock">Pollock</option>
+        </select>
+
+        <label for="fish-length">Length in centimetres</label>
+        <input id="fish-length" name="length" type="number" min="1" max="500" step="1" required>
+
+        <button type="submit">Show my fish</button>
+      </form>
+      <p id="fish-result" role="status"></p>
+      <noscript>Turn on JavaScript to show your fish summary.</noscript>
+    </section>
   </main>
 
   <footer>
@@ -60,3 +81,4 @@
 
 </body>
 </html>
+
