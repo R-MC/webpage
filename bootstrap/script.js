@@ -1,4 +1,3 @@
-// Created with OpenAI Codex assistance, 20 October 2026.
 const form = document.getElementById('fish-form');
 const result = document.getElementById('fish-result');
 
@@ -16,7 +15,7 @@ form.addEventListener('submit', function (event) {
     result.textContent += ' Thanks for recording your fish!';
   }
 });
-
+//check later
 // API documentation: https://open-meteo.com/en/docs
 const weatherButton = document.getElementById('weather-button');
 const weatherStatus = document.getElementById('weather-status');
@@ -24,7 +23,7 @@ const weatherStatus = document.getElementById('weather-status');
 weatherButton.addEventListener('click', async function () {
   weatherButton.disabled = true;
   weatherStatus.textContent = 'Loading weather...';
-
+//goes after
   try {
     const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=1.29&longitude=103.85&current=temperature_2m,wind_speed_10m', {
       signal: AbortSignal.timeout(15000)
